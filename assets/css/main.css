@@ -147,7 +147,21 @@ body{font-family:var(--sans);background:var(--navy);color:var(--pale);overflow-x
 .line-float{position:fixed;bottom:28px;right:28px;z-index:9998;width:60px;height:60px;background:#06C755;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 20px rgba(6,199,85,0.35);transition:all 0.4s var(--ease);opacity:0;transform:translateY(20px);animation:fadeIn 0.6s 2.5s var(--ease) forwards}
 .line-float:hover{transform:translateY(-3px) scale(1.08);box-shadow:0 8px 32px rgba(6,199,85,0.45)}
 .line-float svg{width:32px;height:32px}
-@media(max-width:768px){.line-float{bottom:20px;right:20px;width:54px;height:54px}.line-float svg{width:28px;height:28px}}
+@media(max-width:768px){.line-float{display:none}}  /* mobile 改用底部 CTA Bar */
+
+/* ═══ MOBILE BOTTOM CTA BAR (只在 768px 以下顯示) ═══ */
+.mobile-cta-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:9997;background:rgba(7,13,61,0.98);backdrop-filter:blur(20px);border-top:1px solid rgba(197,160,89,0.15);box-shadow:0 -4px 24px rgba(0,0,0,0.3)}
+.mobile-cta-bar-inner{display:flex;width:100%}
+.mobile-cta-bar a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:16px 12px;text-decoration:none;font-family:var(--sans);font-size:0.82rem;font-weight:300;letter-spacing:0.1em;transition:background 0.3s}
+.mobile-cta-bar a svg{width:18px;height:18px;flex-shrink:0}
+.mobile-cta-bar .mcta-tel{color:var(--gold);border-right:1px solid rgba(197,160,89,0.15)}
+.mobile-cta-bar .mcta-tel:active{background:rgba(197,160,89,0.1)}
+.mobile-cta-bar .mcta-line{color:#fff;background:#06C755}
+.mobile-cta-bar .mcta-line:active{background:#05b34c}
+@media(max-width:768px){
+  .mobile-cta-bar{display:block}
+  body{padding-bottom:60px}  /* 避免最後一段內容被 CTA bar 遮住 */
+}
 
 /* ═══ BACK NAV ═══ */
 .back-nav{display:flex;justify-content:center;padding:36px 24px}
