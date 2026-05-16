@@ -1,83 +1,84 @@
-# YUIMOM 精選物業 — 測試包 v2
+# YUIMOM 精選物業 — 測試包（v3 完整版）
 
-## 這版的改動
+## 這版的內容
 
-✓ 業種卡片從 7 張 → **3 張**（銀行、餐廳、共享辦公）
-✓ 地段周邊從 10 個 → **4 個**（輕軌、流行音樂中心、展覽館＋港埠、漢神）
-✓ 新增手機版底部固定 CTA Bar（左：立即洽詢｜右：LINE 諮詢）
-✓ 桌機版維持右下角 LINE 浮動按鈕；手機版自動隱藏避免重疊
-✓ 海邊頁中文 1747 字（精簡後仍含完整 SEO 結構）
-
----
+✓ 中文 5 頁：首頁 + 海邊 / 中山 / 長茁 / 保泰
+✓ 英文 5 頁：Overview + Haibian / Zhongshan / Evergreen / Baotai
+✓ 業種卡片各頁主推 3 張（保泰 2 張），其他用「亦適合」一行帶過
+✓ 地段周邊統一 4 條（手機友善）
+✓ 手機版底部固定 CTA Bar
+✓ 全站 SEO 完整（hreflang、JSON-LD、FAQ）
 
 ## 使用方式
 
-### 1. 開新 GitHub repo
+### 1. 開新 GitHub repo 測試
 - 名稱建議：`yuimom-landing-test`
 - 設為 **Public**
-- **不要勾** Add README / .gitignore / license
+- **不要**勾任何初始化選項
 
-### 2. 把這個資料夾的所有檔案丟進 repo
+### 2. 把這個資料夾的全部內容丟進 repo
 ```
 yuimom-landing-test/
-├── index.html              ← 首頁
-├── haiban/index.html       ← 海邊頁（SEO 完整版）
-├── zhongshan/index.html    ← 占位頁
-├── changzhuo/index.html    ← 占位頁
-├── baotai/index.html       ← 占位頁
-├── assets/
-│   ├── css/main.css
-│   └── js/main.js
-├── images/                 ← ⚠️ 空的，要從原 repo 複製進來
-└── pdf/                    ← ⚠️ 空的（選用）
+├── index.html
+├── haiban/ zhongshan/ changzhuo/ baotai/
+├── en/index.html
+├── en/haiban/ en/zhongshan/ en/changzhuo/ en/baotai/
+├── assets/css/main.css
+├── assets/js/main.js
+├── images/        ← 空的，要自己補
+├── pdf/           ← 空的，可選
+├── sitemap.xml
+├── robots.txt
+└── README.md
 ```
 
-### 3. 補上圖片
-從你 `yuimom-landing` 的 `images/` 複製這幾個必要的：
+### 3. 補圖片
+從你正式 repo（`yylin1110jp-creator/yuimom-landing`）的 `images/` 複製整個資料夾，內容必須包含：
 
-```
-images/
-├── logo_hero.png        ← Hero 區大 LOGO
-├── logo_nav.png         ← 頂部 nav LOGO
-├── favicon-192.png
-├── apple-touch-icon.png
-├── haiban.jpg ~ haiban4.jpg
-├── zhongshan.jpg        ← 首頁卡片用
-├── changzhuo.jpg        ← 首頁卡片用
-├── baotai.jpg           ← 首頁卡片用
-└── og-image.jpg
-```
+- logo_hero.png, logo_nav.png
+- favicon-192.png, apple-touch-icon.png
+- haiban.jpg ~ haiban4.jpg
+- zhongshan.jpg ~ zhongshan3.jpg
+- changzhuo.jpg ~ changzhuo3.jpg
+- baotai.jpg, baotai3.jpg, baotai4.jpg
+- og-image.jpg
 
-`favicon.ico` 放根目錄。
+從正式 repo 把 `favicon.ico` 複製到 repo 根目錄。
 
-### 4. 啟用 GitHub Pages
+### 4. 補 PDF（選用）
+從正式 repo 的 `pdf/` 把 4 個 PDF 複製過來。
+
+### 5. 開啟 GitHub Pages
 - Settings → Pages
-- Source: Deploy from a branch → `main` / `(root)`
-- **不要**設 custom domain
+- Source: `Deploy from a branch` → `main` / `/ (root)`
+- **不要**設 custom domain（保持 `username.github.io/repo-name/`）
 
-網址：`https://yylin1110jp-creator.github.io/yuimom-landing-test/`
-
----
+幾分鐘後測試版會在：
+`https://yylin1110jp-creator.github.io/yuimom-landing-test/`
 
 ## 測試重點
 
-### 手機 (760px 以下)
-- ✅ 底部固定 CTA Bar 一直在
-- ✅ 右下角 LINE 浮動按鈕應該消失
-- ✅ 業種卡 3 張，每張很短可滑完
-- ✅ 地段 4 條，一眼看完
-
 ### 桌機
-- ✅ 右下角 LINE 浮動按鈕在
-- ✅ 底部 CTA Bar 不顯示
-- ✅ 視覺風格跟原本一致
+- 首頁、4 個建案頁、4 個英文建案頁 都可正常開
+- 語言切換（EN / 中）按鈕對應頁面正確切換
+- 右下角 LINE 浮動按鈕顯示
+
+### 手機
+- 底部固定 CTA Bar：左「立即洽詢」、右「LINE 諮詢」
+- 右下角 LINE 浮動按鈕**消失**（避免重疊）
+- 業種卡片各頁主推 3 張、保泰 2 張
+- 地段周邊各頁 4 條
+
+### SEO 結構
+每個建案頁應該有：
+- 頁籤 Title 含坪數和規格
+- 適合業種 3 張卡片
+- 地段周邊 4 條
+- FAQ 6 題
+- 下方 PDF 下載 bar
 
 ---
 
-## 已知未完成
+## 之後上正式版
 
-- 中山/長茁/保泰 中文完整 SEO 頁面（目前是占位頁）
-- 全站英文版（`/en/...`）
-- `sitemap.xml` 更新
-
-確認測試版視覺/體驗 OK 後，會繼續完成。
+確認測試版沒問題後，跟我說一聲，我給你正式版 zip（絕對路徑 + CNAME），就可以直接推到正式 repo `yuimom-landing` 取代舊的 SPA 版本。
